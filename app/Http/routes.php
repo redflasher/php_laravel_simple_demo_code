@@ -1,0 +1,33 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Application Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register all of the routes for an application.
+| It's a breeze. Simply tell Laravel the URIs it should respond to
+| and give it the controller to call when that URI is requested.
+|
+*/
+
+Route::get('/', "Auth\LoginController@index");
+
+Route::get('/remember/password', function () {
+    return view('password.remember');
+});
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::post('/login', "Auth\LoginController@login");
+
+
+Route::get('/register', function () {
+    return view('register');
+});
+
+Route::post('/register', "Auth\LoginController@register");
+
+Route::get("/logout","Auth\LoginController@logout");
